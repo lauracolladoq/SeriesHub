@@ -3,6 +3,7 @@
     <style name="Base.Theme.TareaFinal081224" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:fontFamily">@font/poppins_regular</item>
     </style>
 
     <style name="Theme.TareaFinal081224" parent="Base.Theme.TareaFinal081224" />

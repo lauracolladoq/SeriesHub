@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TareaFinal081224</string>
+    <!-- Login -->
+    <string name="tv_title_login">Please enter your credentials to access your account.</string>
+    <string name="et_email">Email</string>
+    <string name="et_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="btn_reset">Clean</string>
 </resources>
