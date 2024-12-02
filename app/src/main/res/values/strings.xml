@@ -7,4 +7,5 @@
     <string name="btn_login">Login</string>
     <string name="btn_register">Register</string>
     <string name="btn_reset">Clean</string>
+    <string name="tv_or_login">or login with</string>
 </resources>
