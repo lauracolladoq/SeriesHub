@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "920676154856",
+    "firebase_url": "https://tareafinal081224-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "tareafinal081224",
+    "storage_bucket": "tareafinal081224.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920676154856:android:54ccf497008208176d385d",
+        "android_client_info": {
+          "package_name": "com.example.tareafinal081224"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "920676154856-e2oovvecoqdqkcp8bgn3dbvreb9sttk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCatqYVHkjH7sc-BMiEw5Ogl_d6QJFyE9U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "920676154856-e2oovvecoqdqkcp8bgn3dbvreb9sttk1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
