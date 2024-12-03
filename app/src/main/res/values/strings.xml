@@ -8,4 +8,12 @@
     <string name="btn_register">Register</string>
     <string name="btn_reset">Clean</string>
     <string name="tv_or_login">or login with</string>
+    <!-- Menu Navigation -->
+    <string name="item_explorer">Explorer</string>
+    <string name="item_profile">Profile</string>
+    <string name="item_favorites">Favorites</string>
+    <string name="item_exit">Exit</string>
+    <!-- Fragment Profile -->
+    <string name="btn_logout">Logout</string>
+    <string name="btn_exit">Exit</string>
 </resources>

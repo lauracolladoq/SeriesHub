@@ -1,58 +1,23 @@
 package com.example.tareafinal081224
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tareafinal081224.databinding.ActivityMainBinding
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
+import com.example.tareafinal081224.fragments.FragmentExplorer
+import com.example.tareafinal081224.fragments.FragmentFavorites
+import com.example.tareafinal081224.fragments.FragmentProfile
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
-    // LOGIN USANDO FIREBASE Y CON GOOGLE ----------------------------------------------------------
-    private val responseLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
-            if (it.resultCode == RESULT_OK) {
-                val datos = GoogleSignIn.getSignedInAccountFromIntent(it.data)
-                try {
-                    val cuenta = datos.getResult(ApiException::class.java)
-                    if (cuenta != null) {
-                        val credenciales = GoogleAuthProvider.getCredential(cuenta.idToken, null)
-                        FirebaseAuth.getInstance().signInWithCredential(credenciales)
-                            .addOnCompleteListener {
-                                if (it.isSuccessful) {
-                                    irActivityApp()
-                                }
-                            }
-                            .addOnFailureListener {
-                                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT)
-                                    .show()
-                            }
-                    }
-                } catch (e: ApiException) {
-                    Log.d("API Error: >>>>>>>>>", e.message.toString())
-                }
-            }
-            if (it.resultCode == RESULT_CANCELED) {
-                Toast.makeText(this, "The user canceled the operation", Toast.LENGTH_SHORT).show();
-            }
-        }
-
     private lateinit var binding: ActivityMainBinding
-    private lateinit var auth: FirebaseAuth
-    private var email = ""
-    private var password = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,99 +29,42 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        auth = Firebase.auth
-        setListeners()
-    }
-
-    private fun setListeners() {
-        // BOTONES DEL LOGIN -----------------------------------------------------------------------
-        binding.btnReset.setOnClickListener {
-            limpiar()
-        }
-
-        binding.btnLogin.setOnClickListener {
-            login()
-        }
-
-        binding.btnRegister.setOnClickListener {
-            registrarse()
-        }
-        binding.btnGoogle.setOnClickListener {
-            loginGoogle()
-        }
+        cargarFragment(FragmentProfile())
 
     }
-    // FUNCIONALIDAD DEL LOGIN -----------------------------------------------------------------------
-    private fun loginGoogle() {
-        val googleConf = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(getString(R.string.google_client_id))
-            .requestEmail()
-            .build()
-        val googleClient = GoogleSignIn.getClient(this, googleConf)
 
-        // Para que no haga login automático al cerrar sesión
-        googleClient.signOut()
-
-        responseLauncher.launch(googleClient.signInIntent)
+    // NAVIGATION MENU -----------------------------------------------------------------------------
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.navigation_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 
-    private fun registrarse() {
-        if (!datosCorrectos()) return
-
-        auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    login()
-                }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.item_exit -> {
+                // Finalizar todas las actividades de la app
+                finishAffinity()
             }
-            .addOnFailureListener {
-                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
-            }
-    }
 
-    private fun login() {
-        if (!datosCorrectos()) return
-        // Datos correctos -> logeamos al usuario
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener {
-                if (it.isSuccessful) {
-                    irActivityApp()
-                }
+            R.id.item_profile -> {
+                cargarFragment(FragmentProfile())
             }
-            .addOnFailureListener {
-                Toast.makeText(this, it.message.toString(), Toast.LENGTH_SHORT).show()
+            R.id.item_explorer -> {
+                cargarFragment(FragmentExplorer())
             }
-    }
 
-    private fun datosCorrectos(): Boolean {
-        email = binding.etEmail.text.toString().trim()
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            binding.etEmail.setError("A valid email address is expected");
-            return false
+            R.id.item_favorites -> {
+                cargarFragment(FragmentFavorites())
+            }
         }
+        return super.onOptionsItemSelected(item)
+    }
 
-        password = binding.etPassword.text.toString().trim()
-        if (password.length < 5) {
-            binding.etPassword.setError("Password must be at least 5 characters long");
-            return false
+    // Cargar fragmentos pasados por parámetro
+    private fun cargarFragment(fragment: androidx.fragment.app.Fragment) {
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fcv, fragment)
+            commit()
         }
-        return true
-    }
-
-    private fun limpiar() {
-        binding.etPassword.setText("")
-        binding.etEmail.setText("")
-    }
-
-    // Lanza el App Activity
-    private fun irActivityApp() {
-        startActivity(Intent(this, AppActivity::class.java))
-    }
-
-    // Sobreescribir on Start para que si el usuario está logeado se salte el login
-    override fun onStart() {
-        super.onStart()
-        val usuario = auth.currentUser
-        if (usuario != null) irActivityApp()
     }
 }
