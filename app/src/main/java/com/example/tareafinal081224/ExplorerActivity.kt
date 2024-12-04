@@ -2,6 +2,7 @@ package com.example.tareafinal081224
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -13,16 +14,21 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.tareafinal081224.adapters.SerieAdapter
 import com.example.tareafinal081224.databinding.ActivityExplorerBinding
+import com.example.tareafinal081224.models.Genre
 import com.example.tareafinal081224.models.Serie
-import com.example.tareafinal081224.providers.ObjectClientApi.apiClient
+import com.example.tareafinal081224.providers.ObjectClientApi.genresClient
+import com.example.tareafinal081224.providers.ObjectClientApi.seriesClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ExplorerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExplorerBinding
-    val lista = mutableListOf<Serie>()
-    val adapter = SerieAdapter(lista)
+    val listaSeries = mutableListOf<Serie>()
+    val listaGenres = mutableListOf<Genre>()
+
+    // Convertir en función lambda para pasar el objeto Serie
+    val adapter = SerieAdapter(listaSeries, { serie -> showDetail(serie) })
     var api = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -48,12 +54,38 @@ class ExplorerActivity : AppCompatActivity() {
         binding.rvSeries.adapter = adapter
         api = getString(R.string.api_themoviedb)
         getSeries()
+        getGenders()
+    }
+
+    private fun getGenders() {
+        // 3 Dispatchers, Main, Default, IO
+        lifecycleScope.launch(Dispatchers.IO) {
+            val datos = genresClient.getGenres(api)
+            Log.d("API_GENRES", "Response: ${datos.body()}")
+            val generos = datos.body()?.listadoGenre ?: emptyList()
+            listaGenres.clear()
+            listaGenres.addAll(generos)
+
+            // Modificar la pantalla en el main y no en el IO
+            withContext(Dispatchers.Main) {
+                adapter.lista = listaGenres as MutableList<Serie>
+                adapter.notifyDataSetChanged()
+            }
+            if (!datos.isSuccessful) {
+                // @ExplorerActivity ya que estamos en el hilo
+                Toast.makeText(
+                    this@ExplorerActivity,
+                    "Error al cargar los géneros",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
     }
 
     private fun getSeries() {
         // 3 Dispatchers, Main, Default, IO
         lifecycleScope.launch(Dispatchers.IO) {
-            val datos = apiClient.getSeriesPopulares(api)
+            val datos = seriesClient.getSeriesPopulares(api)
             val listaSeries = datos.body()?.listadoSeries ?: emptyList<Serie>().toMutableList()
 
             // Modificar la pantalla en el main y no en el IO
@@ -103,5 +135,19 @@ class ExplorerActivity : AppCompatActivity() {
     private fun cargarActivity(java: Class<*>) {
         val intent = Intent(this, java)
         startActivity(intent)
+    }
+
+    // DETAILED VIEW -------------------------------------------------------------------------------
+    fun showDetail(serie: Serie) {
+        // Obtener los nombres de los géneros de la serie
+        val genreNames = serie.genres.mapNotNull { id ->
+            listaGenres.find { it.id == id }?.name
+        }
+        val i = Intent(this, DetailActivity::class.java).apply {
+            putExtra("serie", serie)
+            // Pasar la lista de géneros a la siguiente actividad
+            putStringArrayListExtra("genreNames", ArrayList(genreNames))
+        }
+        startActivity(i)
     }
 }

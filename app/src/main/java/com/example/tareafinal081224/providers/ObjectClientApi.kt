@@ -8,5 +8,6 @@ object ObjectClientApi {
         .baseUrl("https://api.themoviedb.org/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    val apiClient = retrofit.create(SeriesInterfaz::class.java)
+    val seriesClient = retrofit.create(SeriesInterfaz::class.java)
+    val genresClient = retrofit.create(GenresInterfaz::class.java)
 }

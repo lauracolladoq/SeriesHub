@@ -18,4 +18,6 @@
     <string name="btn_exit">Exit</string>
     <!-- Explorer -->
     <string name="tv_title_explorer">Popular Series</string>
+    <!-- Detail -->
+    <string name="btn_back">Back</string>
 </resources>

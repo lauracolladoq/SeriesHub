@@ -8,10 +8,14 @@ import com.squareup.picasso.Picasso
 
 class SerieViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val binding = SeriesLayoutBinding.bind(v)
-    fun render(serie: Serie) {
+    fun render(serie: Serie, onItemClick: (Serie) -> Unit) {
         binding.tvTitle.text = serie.title
         binding.tvRating.text = serie.rating.toString()
-        Picasso.get().load("https://image.tmdb.org/t/p/w500${serie.backdrop}").into(binding.ivBackdrop)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500${serie.backdrop}")
+            .into(binding.ivBackdrop)
+
+        // Efecto
+        itemView.setOnClickListener { onItemClick(serie) }
     }
 
 }
