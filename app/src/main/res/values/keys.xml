@@ -3,4 +3,7 @@
     <string name="google_client_id" formatted="false" translatable="false">
         920676154856-e2oovvecoqdqkcp8bgn3dbvreb9sttk1.apps.googleusercontent.com
     </string>
+    <string name="api_themoviedb" formatted="false" translatable="false">
+        b18c0a103b3a259545a70d235cde571d
+    </string>
 </resources>

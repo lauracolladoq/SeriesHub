@@ -13,7 +13,9 @@
     <string name="item_profile">Profile</string>
     <string name="item_favorites">Favorites</string>
     <string name="item_exit">Exit</string>
-    <!-- Fragment Profile -->
+    <!-- Profile -->
     <string name="btn_logout">Logout</string>
     <string name="btn_exit">Exit</string>
+    <!-- Explorer -->
+    <string name="tv_title_explorer">Popular Series</string>
 </resources>

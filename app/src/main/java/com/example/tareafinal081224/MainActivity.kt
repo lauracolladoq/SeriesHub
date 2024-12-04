@@ -58,7 +58,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.item_explorer -> {
-
+                cargarActivity(ExplorerActivity::class.java)
             }
 
             R.id.item_favorites -> {
