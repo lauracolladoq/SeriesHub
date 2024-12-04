@@ -1,5 +1,6 @@
 package com.example.tareafinal081224
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,16 +9,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tareafinal081224.databinding.ActivityMainBinding
-import com.example.tareafinal081224.fragments.FragmentExplorer
-import com.example.tareafinal081224.fragments.FragmentFavorites
-import com.example.tareafinal081224.fragments.FragmentProfile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +27,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        cargarFragment(FragmentProfile())
+        auth = Firebase.auth
+        binding.tvEmail.text = auth.currentUser?.email.toString()
+        setListeners()
 
+    }
+
+    private fun setListeners() {
+        binding.btnLogout.setOnClickListener {
+            auth.signOut()
+            finish()
+        }
     }
 
     // NAVIGATION MENU -----------------------------------------------------------------------------
@@ -47,24 +54,22 @@ class MainActivity : AppCompatActivity() {
             }
 
             R.id.item_profile -> {
-                cargarFragment(FragmentProfile())
+                cargarActivity(MainActivity::class.java)
             }
+
             R.id.item_explorer -> {
-                cargarFragment(FragmentExplorer())
+
             }
 
             R.id.item_favorites -> {
-                cargarFragment(FragmentFavorites())
+
             }
         }
         return super.onOptionsItemSelected(item)
     }
 
-    // Cargar fragmentos pasados por parámetro
-    private fun cargarFragment(fragment: androidx.fragment.app.Fragment) {
-        supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fcv, fragment)
-            commit()
-        }
+    private fun cargarActivity(java: Class<*>) {
+        val intent = Intent(this, java)
+        startActivity(intent)
     }
 }
