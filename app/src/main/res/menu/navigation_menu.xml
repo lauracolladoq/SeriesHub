@@ -5,6 +5,10 @@
         android:icon="@drawable/busqueda"
         android:title="@string/item_explorer" />
     <item
+        android:id="@+id/item_search"
+        android:icon="@drawable/busqueda"
+        android:title="@string/item_search" />
+    <item
         android:id="@+id/item_favorites"
         android:icon="@drawable/favorito"
         android:title="@string/item_favorites" />

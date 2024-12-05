@@ -64,6 +64,9 @@ class MainActivity : AppCompatActivity() {
             R.id.item_favorites -> {
 
             }
+            R.id.item_search -> {
+                cargarActivity(SearchActivity::class.java)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

@@ -50,6 +50,8 @@ dependencies {
     implementation(libs.firebase.auth)
     implementation("com.google.android.gms:play-services-auth:21.2.0")
 
+    implementation(libs.androidx.swiperefreshlayout)
+
     implementation(libs.retrofit)
     implementation(libs.moshi.kotlin)
     implementation(libs.picasso)

@@ -11,6 +11,7 @@
     <!-- Menu Navigation -->
     <string name="item_explorer">Explorer</string>
     <string name="item_profile">Profile</string>
+    <string name="item_search">Search</string>
     <string name="item_favorites">Favorites</string>
     <string name="item_exit">Exit</string>
     <!-- Profile -->
