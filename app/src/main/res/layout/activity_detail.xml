@@ -9,7 +9,8 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="12dp"
     app:cardUseCompatPadding="true"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity"
+    android:padding="15dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -64,7 +65,7 @@
         <ScrollView
             android:id="@+id/sv_detail"
             android:layout_width="0dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="@id/iv_poster"
             app:layout_constraintStart_toStartOf="@id/iv_poster"

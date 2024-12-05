@@ -17,7 +17,10 @@
     <string name="btn_logout">Logout</string>
     <string name="btn_exit">Exit</string>
     <!-- Explorer -->
-    <string name="tv_title_explorer">Popular Series</string>
+    <string name="btn_top">Top Rated</string>
+    <string name="btn_airing">Airing Today</string>
+    <string name="btn_popular">Popular</string>
+    <string name="checkBox">+18</string>
     <!-- Detail -->
     <string name="btn_back">Back</string>
 </resources>
