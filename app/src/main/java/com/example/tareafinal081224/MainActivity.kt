@@ -61,9 +61,10 @@ class MainActivity : AppCompatActivity() {
                 cargarActivity(ExplorerActivity::class.java)
             }
 
-            R.id.item_favorites -> {
-
+            R.id.item_reviews -> {
+                cargarActivity(ReviewActivity::class.java)
             }
+
             R.id.item_search -> {
                 cargarActivity(SearchActivity::class.java)
             }

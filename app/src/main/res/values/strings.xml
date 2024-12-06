@@ -12,7 +12,7 @@
     <string name="item_explorer">Explorer</string>
     <string name="item_profile">Profile</string>
     <string name="item_search">Search</string>
-    <string name="item_favorites">Favorites</string>
+    <string name="item_reviews">Reviews</string>
     <string name="item_exit">Exit</string>
     <!-- Profile -->
     <string name="btn_logout">Logout</string>
@@ -24,4 +24,13 @@
     <string name="checkBox">+18</string>
     <!-- Detail -->
     <string name="btn_back">Back</string>
+    <string name="btn_create">Add Review</string>
+    <!-- Review -->
+    <string name="tv_title_review">Your Personal Reviews</string>
+    <!-- Add Review -->
+    <string name="tv_title_add">Add Review</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="et_comment">Comment</string>
+    <string name="tv_rating">Your Rating</string>
 </resources>

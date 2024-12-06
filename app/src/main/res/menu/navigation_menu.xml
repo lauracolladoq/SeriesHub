@@ -9,9 +9,9 @@
         android:icon="@drawable/busqueda"
         android:title="@string/item_search" />
     <item
-        android:id="@+id/item_favorites"
+        android:id="@+id/item_reviews"
         android:icon="@drawable/favorito"
-        android:title="@string/item_favorites" />
+        android:title="@string/item_reviews" />
     <item
         android:id="@+id/item_profile"
         android:icon="@drawable/usuario"

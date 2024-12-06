@@ -140,11 +140,10 @@ class ExplorerActivity : AppCompatActivity() {
                 }
             }
 
-            // QUEDA POR TESTEAR EN LAS TRES CONSULTAS TODOS LOS ADULTS SON FALSE
-            // ESPERAR Y BUSCAR UNO TRUE
             // Datos filtrados por adulto
             if (binding.checkBox.isChecked) {
-                datos.body()?.listadoSeries?.removeAll { it.adult }
+                // Que aparezcan solo las series para adultos
+                datos.body()?.listadoSeries?.removeAll { !it.adult }
             }
 
             val listaSeries = datos.body()?.listadoSeries ?: emptyList<Serie>().toMutableList()
@@ -186,8 +185,8 @@ class ExplorerActivity : AppCompatActivity() {
                 cargarActivity(ExplorerActivity::class.java)
             }
 
-            R.id.item_favorites -> {
-
+            R.id.item_reviews -> {
+                cargarActivity(ReviewActivity::class.java)
             }
         }
         return super.onOptionsItemSelected(item)

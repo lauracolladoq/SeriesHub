@@ -1,5 +1,6 @@
 package com.example.tareafinal081224
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -33,6 +34,10 @@ class DetailActivity : AppCompatActivity() {
         binding.btnBack.setOnClickListener {
             finish()
         }
+
+        binding.btnCreate.setOnClickListener {
+            startActivity(Intent(this, CreateReviewActivity::class.java))
+        }
     }
 
     // Obtiene los detalles de la serie y los muestra en la pantalla
@@ -57,7 +62,6 @@ class DetailActivity : AppCompatActivity() {
             binding.tvAdults.text = "For All Audiences"
         }
 
-        // binding.tvGenres.text = serie.genres.joinToString(", ")
         // Imprimir por consola
         Log.d("GENEROS", "Genres: $genreNames")
 

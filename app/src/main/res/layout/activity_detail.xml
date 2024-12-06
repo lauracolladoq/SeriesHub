@@ -5,23 +5,26 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="15dp"
     app:cardBackgroundColor="#80DEEA"
     app:cardCornerRadius="12dp"
     app:cardElevation="12dp"
     app:cardUseCompatPadding="true"
-    tools:context=".DetailActivity"
-    android:padding="15dp">
+    tools:context=".DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="15dp">
 
         <TextView
             android:id="@+id/tv_title_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_bold"
             android:text="TextView"
             android:textSize="20sp"
@@ -114,12 +117,24 @@
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:backgroundTint="#000000"
             android:text="@string/btn_back"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_create"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/btn_create"
+            app:layout_constraintTop_toTopOf="@+id/btn_create" />
+
+        <Button
+            android:id="@+id/btn_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#42A5F5"
+            android:text="@string/btn_create"
+            app:layout_constraintEnd_toStartOf="@+id/btn_back"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_adults" />
+            app:layout_constraintTop_toBottomOf="@id/tv_adults"
+            android:layout_marginTop="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
