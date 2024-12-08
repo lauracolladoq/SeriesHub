@@ -12,7 +12,8 @@ import com.example.tareafinal081224.providers.CrudReviews
 
 class CreateReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateReviewBinding
-    private var serieId = 20
+    private var seriePoster = ""
+    private var serieTitle = ""
     private var rating = 0
     private var comment = ""
     private var id = 0
@@ -29,6 +30,10 @@ class CreateReviewActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        // Obtener poster y título de la serie
+        seriePoster = intent.getStringExtra("seriePoster").toString()
+        serieTitle = intent.getStringExtra("serieTitle").toString()
 
         setListeners()
     }
@@ -51,7 +56,7 @@ class CreateReviewActivity : AppCompatActivity() {
 
     private fun saveReview() {
         if (datosCorrectos()) {
-            val review = Review(id, serieId, rating, comment)
+            val review = Review(id, seriePoster, serieTitle, rating, comment)
             // Crear review
             CrudReviews().create(review)
             Toast.makeText(this, "Review saved successfully", Toast.LENGTH_SHORT).show()
@@ -64,8 +69,9 @@ class CreateReviewActivity : AppCompatActivity() {
     private fun datosCorrectos(): Boolean {
         rating = binding.seekBar.progress
         comment = binding.etComment.text.toString().trim()
-        if (comment.length > 150) {
-            binding.etComment.error = "The comment must be less than 150 characters"
+        // Modificación de 150 a 1000 caracteres porque 150 es muy poco
+        if (comment.length > 1000) {
+            binding.etComment.error = "The comment must be less than 1000 characters"
             return false
         }
         return true

@@ -14,6 +14,8 @@ import com.squareup.picasso.Picasso
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var serie: Serie
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -26,6 +28,10 @@ class DetailActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        var datos = intent.extras
+        serie = datos?.getSerializable("serie") as Serie
+
         getDetail()
         setListeners()
     }
@@ -36,14 +42,15 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.btnCreate.setOnClickListener {
-            startActivity(Intent(this, CreateReviewActivity::class.java))
+            val intent = Intent(this, CreateReviewActivity::class.java)
+            intent.putExtra("seriePoster", serie.backdrop)
+            intent.putExtra("serieTitle", serie.title)
+            startActivity(intent)
         }
     }
 
     // Obtiene los detalles de la serie y los muestra en la pantalla
     private fun getDetail() {
-        val datos = intent.extras
-        val serie: Serie = datos?.getSerializable("serie") as Serie
         val genreNames = intent.getStringArrayListExtra("genreNames") ?: emptyList()
         binding.tvTitleDetail.text = serie.title
 

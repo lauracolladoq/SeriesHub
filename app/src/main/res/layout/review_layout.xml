@@ -20,13 +20,16 @@
             android:id="@+id/iv_poster_review"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toTopOf="@+id/iv_rating_detail"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_name_review"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:fontFamily="@font/poppins_semibold"
             android:text="TextView"
             android:textColor="#2196F3"
@@ -35,53 +38,78 @@
             app:layout_constraintStart_toEndOf="@+id/iv_poster_review"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="@id/tv_rating_review"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/iv_poster_review"
-            app:layout_constraintTop_toBottomOf="@+id/tv_name_review" />
+            app:layout_constraintTop_toBottomOf="@+id/tv_name_review">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_comment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="TextView" />
+            </LinearLayout>
+        </ScrollView>
+
 
         <ImageView
             android:id="@+id/iv_rating_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rating_review"
+            app:layout_constraintEnd_toStartOf="@+id/tv_rating_review"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iv_poster_review"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_rating_review"
             app:srcCompat="@drawable/estrella" />
 
         <TextView
             android:id="@+id/tv_rating_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:text="TextView"
+            android:textAlignment="center"
+            app:layout_constraintTop_toBottomOf="@id/iv_poster_review"
             app:layout_constraintStart_toEndOf="@id/iv_rating_detail"
-            app:layout_constraintTop_toTopOf="@id/iv_rating_detail"
-            app:layout_constraintBottom_toBottomOf="@id/iv_rating_detail"/>
+            app:layout_constraintVertical_bias="0.5"
+            android:layout_marginTop="10dp"/>
+
+        <Button
+            android:id="@+id/btn_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="#000000"
+            android:text="@string/btn_edit"
+            app:icon="@drawable/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btn_delete"
+            app:layout_constraintStart_toStartOf="@id/tv_rating_review"
+            app:layout_constraintTop_toBottomOf="@id/tv_rating_review" />
 
         <Button
             android:id="@+id/btn_delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="#E53935"
+            android:text="@string/btn_delete"
             app:icon="@drawable/delete"
+            app:layout_constraintBottom_toBottomOf="@id/btn_update"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintStart_toEndOf="@id/btn_update"
+            app:layout_constraintTop_toTopOf="@id/btn_update" />
 
-        <Button
-            android:id="@+id/btn_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="#000000"
-            app:icon="@drawable/edit"
-            app:layout_constraintEnd_toStartOf="@id/btn_delete"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginRight="10dp"
-             />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

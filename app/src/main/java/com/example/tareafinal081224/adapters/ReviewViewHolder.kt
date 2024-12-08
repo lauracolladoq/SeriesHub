@@ -8,12 +8,15 @@ import com.squareup.picasso.Picasso
 
 class ReviewViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val binding = ReviewLayoutBinding.bind(v)
+
     fun render(r: Review) {
         // Tengo que obtener de la id de las series los campos necesarios para mostrar
-        binding.tvNameReview.text = r.serieId.toString()
+        binding.tvNameReview.text = r.serieTitle
         binding.tvComment.text = r.comment
         binding.tvRatingReview.text = r.rating.toString()
-        // Picasso.get().load(r.serieId).into(binding.ivPosterReview)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500${r.seriePoster}")
+            .into(binding.ivPosterReview)
     }
 
 }
+

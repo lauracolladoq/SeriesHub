@@ -6,11 +6,18 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tareafinal081224.adapters.ReviewAdapter
 import com.example.tareafinal081224.databinding.ActivityReviewBinding
 import com.example.tareafinal081224.models.Review
+import com.example.tareafinal081224.models.Serie
 import com.example.tareafinal081224.providers.CrudReviews
+import com.example.tareafinal081224.providers.ObjectClientApi
+import com.example.tareafinal081224.providers.SeriesInterfaz
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class ReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityReviewBinding

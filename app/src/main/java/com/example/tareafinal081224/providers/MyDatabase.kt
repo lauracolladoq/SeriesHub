@@ -8,7 +8,8 @@ class MyDatabase() :
     SQLiteOpenHelper(Aplication.contexto, Aplication.DB, null, Aplication.VERSION) {
     private val q = "create table ${Aplication.TABLA}(" +
             "id integer primary key autoincrement, " +
-            "serieId integer, " +
+            "seriePoster text, " +
+            "serieTitle text, " +
             "comment text, " +
             "rating integer);"
 

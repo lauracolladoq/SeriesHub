@@ -28,7 +28,8 @@ class CrudReviews {
     // Para mapear el objeto Review a un ContentValues para poder insertarlo en la base de datos
     private fun Review.toContentValues(): ContentValues {
         return ContentValues().apply {
-            put("serieId", serieId)
+            put("seriePoster", seriePoster)
+            put("serieTitle", serieTitle)
             put("rating", rating)
             put("comment", comment)
         }
@@ -41,7 +42,7 @@ class CrudReviews {
         try {
             val cursor = con.query(
                 Aplication.TABLA,
-                arrayOf("id", "serieId", "rating", "comment"),
+                arrayOf("id", "seriePoster", "serieTitle", "rating", "comment"),
                 null,
                 null,
                 null,
@@ -51,9 +52,10 @@ class CrudReviews {
             while (cursor.moveToNext()) {
                 val review = Review(
                     cursor.getInt(0),
-                    cursor.getInt(1),
-                    cursor.getInt(2),
-                    cursor.getString(3)
+                    cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getInt(3),
+                    cursor.getString(4)
                 )
                 lista.add(review)
             }
@@ -67,5 +69,5 @@ class CrudReviews {
 
     // UPDATE --------------------------------------------------------------------------------------
 
-    // DELETE --------------------------------------------------------------------------------------
+
 }

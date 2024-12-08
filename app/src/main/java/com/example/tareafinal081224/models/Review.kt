@@ -4,7 +4,8 @@ import java.io.Serializable
 
 data class Review(
     val id: Int,
-    val serieId: Int,
+    val seriePoster: String,
+    val serieTitle: String,
     val rating: Int,
     val comment: String
 ) : Serializable

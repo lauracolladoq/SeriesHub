@@ -5,6 +5,7 @@ import java.io.Serializable
 
 data class Serie(
     // SerializedName para nombrar las variables diferentes a las que vienen en la API
+    @SerializedName("id") val id: Int,
     @SerializedName("original_name") val title: String,
     @SerializedName("overview") val synopsis: String,
     @SerializedName("backdrop_path") val backdrop: String,
