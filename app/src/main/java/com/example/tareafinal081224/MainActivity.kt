@@ -68,6 +68,10 @@ class MainActivity : AppCompatActivity() {
             R.id.item_search -> {
                 cargarActivity(SearchActivity::class.java)
             }
+
+            R.id.item_maps -> {
+                cargarActivity(MapActivity::class.java)
+            }
         }
         return super.onOptionsItemSelected(item)
     }

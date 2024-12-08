@@ -14,6 +14,7 @@
     <string name="item_search">Search</string>
     <string name="item_reviews">Reviews</string>
     <string name="item_exit">Exit</string>
+    <string name="item_maps">Maps</string>
     <!-- Profile -->
     <string name="btn_logout">Logout</string>
     <string name="btn_exit">Exit</string>

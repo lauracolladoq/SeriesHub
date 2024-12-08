@@ -1,6 +1,7 @@
 [versions]
 agp = "8.7.1"
 androidxSwiperefreshlayout = "1.2.0-alpha01"
+fragmentKtx = "1.8.5"
 gson = "2.8.8"
 kotlin = "1.9.24"
 coreKtx = "1.15.0"
@@ -16,10 +17,12 @@ firebaseAuth = "23.1.0"
 moshiKotlin = "1.15.1"
 picasso = "2.8"
 playServicesAuth = "21.2.0"
+playServicesMaps = "19.0.0"
 retrofit = "2.11.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "androidxSwiperefreshlayout" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
@@ -34,6 +37,7 @@ firebase-auth = { group = "com.google.firebase", name = "firebase-auth", version
 moshi-kotlin = { module = "com.squareup.moshi:moshi-kotlin", version.ref = "moshiKotlin" }
 picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "playServicesAuth" }
+play-services-maps = { module = "com.google.android.gms:play-services-maps", version.ref = "playServicesMaps" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 
 [plugins]

@@ -6,4 +6,7 @@
     <string name="api_themoviedb" formatted="false" translatable="false">
         b18c0a103b3a259545a70d235cde571d
     </string>
+    <string name="google_maps_key" formatted="false" translatable="false">
+        AIzaSyBwWgkpawLeMrHpt24gFus2zrG330kmq8M
+    </string>
 </resources>

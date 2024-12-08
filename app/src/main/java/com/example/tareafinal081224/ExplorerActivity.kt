@@ -34,6 +34,9 @@ class ExplorerActivity : AppCompatActivity() {
 
     var api = ""
 
+    // Shared Preferences
+    private lateinit var preferences: Preferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -48,7 +51,20 @@ class ExplorerActivity : AppCompatActivity() {
             insets
         }
 
+        preferences = Preferences(this)
+        getPreferences()
         setRecycler()
+    }
+
+    private fun getPreferences() {
+        val adultContent = preferences.getAdultContent()
+        binding.checkBox.isChecked = adultContent
+
+        when (preferences.getSeriesType()) {
+            "popular" -> binding.btnPopular.isChecked = true
+            "top" -> binding.btnTop.isChecked = true
+            "airing" -> binding.btnAiring.isChecked = true
+        }
     }
 
     // Inicializa el RecyclerView
@@ -58,9 +74,6 @@ class ExplorerActivity : AppCompatActivity() {
         binding.rvSeries.adapter = adapterSerie
         api = getString(R.string.api_themoviedb)
 
-        // Establecer el botón de populares como seleccionado por defecto
-        binding.btnPopular.isChecked = true
-
         setListeners()
         getSeries()
         getGenders()
@@ -68,16 +81,20 @@ class ExplorerActivity : AppCompatActivity() {
 
     private fun setListeners() {
         binding.btnTop.setOnClickListener {
+            preferences.setSeriesType("top")
             getSeries()
         }
         binding.btnPopular.setOnClickListener {
+            preferences.setSeriesType("popular")
             getSeries()
         }
         binding.btnAiring.setOnClickListener {
+            preferences.setSeriesType("airing")
             getSeries()
         }
 
         binding.checkBox.setOnClickListener {
+            preferences.setAdultContent(binding.checkBox.isChecked)
             getSeries()
         }
     }

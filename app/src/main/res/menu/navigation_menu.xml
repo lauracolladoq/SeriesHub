@@ -17,6 +17,10 @@
         android:icon="@drawable/usuario"
         android:title="@string/item_profile" />
     <item
+        android:id="@+id/item_maps"
+        android:icon="@drawable/usuario"
+        android:title="@string/item_maps" />
+    <item
         android:id="@+id/item_exit"
         android:title="@string/item_exit" />
 </menu>
