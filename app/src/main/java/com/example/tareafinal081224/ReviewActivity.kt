@@ -7,7 +7,6 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
@@ -15,15 +14,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tareafinal081224.adapters.ReviewAdapter
 import com.example.tareafinal081224.databinding.ActivityReviewBinding
 import com.example.tareafinal081224.models.Review
-import com.example.tareafinal081224.models.Serie
 import com.example.tareafinal081224.providers.CrudReviews
-import com.example.tareafinal081224.providers.ObjectClientApi
-import com.example.tareafinal081224.providers.SeriesInterfaz
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class ReviewActivity : AppCompatActivity() {
+class ReviewActivity : BaseActivity() {
     private lateinit var binding: ActivityReviewBinding
     var listaReviews = mutableListOf<Review>()
     private lateinit var adapter: ReviewAdapter
@@ -139,4 +135,5 @@ class ReviewActivity : AppCompatActivity() {
         super.onRestart()
         setRecycler()
     }
+
 }

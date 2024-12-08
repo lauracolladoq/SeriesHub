@@ -137,4 +137,5 @@
             app:layout_constraintTop_toBottomOf="@id/tv_adults"
             android:layout_marginTop="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

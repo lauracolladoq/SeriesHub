@@ -3,11 +3,8 @@ package com.example.tareafinal081224
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
@@ -24,7 +21,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import retrofit2.Response
 
-class ExplorerActivity : AppCompatActivity() {
+class ExplorerActivity : BaseActivity() {
     private lateinit var binding: ActivityExplorerBinding
     val listaSeries = mutableListOf<Serie>()
     val listaGenres = mutableListOf<Genre>()
@@ -181,40 +178,6 @@ class ExplorerActivity : AppCompatActivity() {
         }
     }
 
-    // NAVIGATION MENU -----------------------------------------------------------------------------
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.navigation_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_exit -> {
-                // Finalizar todas las actividades de la app
-                finishAffinity()
-            }
-
-            R.id.item_profile -> {
-                cargarActivity(MainActivity::class.java)
-            }
-
-            R.id.item_explorer -> {
-                cargarActivity(ExplorerActivity::class.java)
-            }
-
-            R.id.item_reviews -> {
-                cargarActivity(ReviewActivity::class.java)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    // Paso como parámetro la clase a la que quiero ir
-    private fun cargarActivity(java: Class<*>) {
-        val intent = Intent(this, java)
-        startActivity(intent)
-    }
-
     // DETAILED VIEW -------------------------------------------------------------------------------
     fun showDetail(serie: Serie) {
         // Obtiene los nombres de los géneros de la serie seleccionada por su id
@@ -228,4 +191,5 @@ class ExplorerActivity : AppCompatActivity() {
         }
         startActivity(i)
     }
+
 }

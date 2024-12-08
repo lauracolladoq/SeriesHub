@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TareaFinal081224</string>
+    <string name="app_name">SeriesHub</string>
     <!-- Login -->
     <string name="tv_title_login">Please enter your credentials to access your account.</string>
     <string name="et_email">Email</string>
@@ -17,7 +17,7 @@
     <string name="item_maps">Maps</string>
     <!-- Profile -->
     <string name="btn_logout">Logout</string>
-    <string name="btn_exit">Exit</string>
+    <string name="tv_title_profile">Your Profile</string>
     <!-- Explorer -->
     <string name="btn_top">Top Rated</string>
     <string name="btn_airing">Airing Today</string>

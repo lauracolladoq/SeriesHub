@@ -2,10 +2,7 @@ package com.example.tareafinal081224
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tareafinal081224.databinding.ActivityMainBinding
@@ -13,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var auth: FirebaseAuth
 
@@ -30,7 +27,6 @@ class MainActivity : AppCompatActivity() {
         auth = Firebase.auth
         binding.tvEmail.text = auth.currentUser?.email.toString()
         setListeners()
-
     }
 
     private fun setListeners() {
@@ -40,46 +36,5 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    // NAVIGATION MENU -----------------------------------------------------------------------------
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.navigation_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_exit -> {
-                // Finalizar todas las actividades de la app
-                finishAffinity()
-            }
-
-            R.id.item_profile -> {
-                cargarActivity(MainActivity::class.java)
-            }
-
-            R.id.item_explorer -> {
-                cargarActivity(ExplorerActivity::class.java)
-            }
-
-            R.id.item_reviews -> {
-                cargarActivity(ReviewActivity::class.java)
-            }
-
-            R.id.item_search -> {
-                cargarActivity(SearchActivity::class.java)
-            }
-
-            R.id.item_maps -> {
-                cargarActivity(MapActivity::class.java)
-            }
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun cargarActivity(java: Class<*>) {
-        val intent = Intent(this, java)
-        startActivity(intent)
     }
 }

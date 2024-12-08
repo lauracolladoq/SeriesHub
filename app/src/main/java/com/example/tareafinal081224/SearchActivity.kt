@@ -8,13 +8,12 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tareafinal081224.databinding.ActivitySearchBinding
 import java.util.Locale
 
-class SearchActivity : AppCompatActivity() {
+class SearchActivity : BaseActivity() {
     private lateinit var binding: ActivitySearchBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,4 +94,5 @@ class SearchActivity : AppCompatActivity() {
             super.onBackPressed()
         }
     }
+
 }

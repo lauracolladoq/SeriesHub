@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/item_explorer"
-        android:icon="@drawable/busqueda"
+        android:icon="@drawable/video"
         android:title="@string/item_explorer" />
     <item
         android:id="@+id/item_search"
@@ -10,7 +10,7 @@
         android:title="@string/item_search" />
     <item
         android:id="@+id/item_reviews"
-        android:icon="@drawable/favorito"
+        android:icon="@drawable/estrellas"
         android:title="@string/item_reviews" />
     <item
         android:id="@+id/item_profile"
@@ -18,7 +18,7 @@
         android:title="@string/item_profile" />
     <item
         android:id="@+id/item_maps"
-        android:icon="@drawable/usuario"
+        android:icon="@drawable/mapa"
         android:title="@string/item_maps" />
     <item
         android:id="@+id/item_exit"
