@@ -35,4 +35,7 @@
     <string name="btn_cancel">Cancel</string>
     <string name="et_comment">Comment</string>
     <string name="tv_rating">Your Rating</string>
+    <!-- Update Review -->
+    <string name="tv_title_update">Update Review</string>
+    <string name="btn_update">Update</string>
 </resources>

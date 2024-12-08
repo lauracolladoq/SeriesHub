@@ -1,5 +1,6 @@
 package com.example.tareafinal081224
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
@@ -54,8 +55,17 @@ class ReviewActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = layoutManager
         getReviews()
         // adapter = ReviewAdapter(listaReviews)
-        adapter = ReviewAdapter(listaReviews, { position -> deleteReview(position) })
+        adapter = ReviewAdapter(
+            listaReviews,
+            { position -> deleteReview(position) }, { review -> updateReview(review) })
         binding.recyclerView.adapter = adapter
+    }
+
+    private fun updateReview(review: Review) {
+        val i = Intent(this, CreateReviewActivity::class.java).apply {
+            putExtra("REVIEW", review)
+        }
+        startActivity(i)
     }
 
     private fun deleteReview(position: Int) {

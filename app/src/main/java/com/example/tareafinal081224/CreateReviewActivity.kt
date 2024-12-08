@@ -18,6 +18,8 @@ class CreateReviewActivity : AppCompatActivity() {
     private var comment = ""
     private var id = 0
 
+    private var isUpdate = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -36,6 +38,34 @@ class CreateReviewActivity : AppCompatActivity() {
         serieTitle = intent.getStringExtra("serieTitle").toString()
 
         setListeners()
+        getReviews()
+
+        if (isUpdate) {
+            binding.tvTitleAdd.text = getString(R.string.tv_title_update)
+            binding.btnSave.text = getString(R.string.btn_update)
+        }
+    }
+
+    private fun getReviews() {
+        val datos = intent.extras
+        if (datos != null) {
+            val r = datos.getSerializable("REVIEW") as? Review
+            // Validar que la review no sea nula
+            if (r != null) {
+                isUpdate = true
+                id = r.id
+                rating = r.rating
+                comment = r.comment
+                seriePoster = r.seriePoster
+                serieTitle = r.serieTitle
+                setReview()
+            }
+        }
+    }
+
+    private fun setReview() {
+        binding.seekBar.progress = rating
+        binding.etComment.setText(comment)
     }
 
     private fun setListeners() {
@@ -57,10 +87,21 @@ class CreateReviewActivity : AppCompatActivity() {
     private fun saveReview() {
         if (datosCorrectos()) {
             val review = Review(id, seriePoster, serieTitle, rating, comment)
-            // Crear review
-            CrudReviews().create(review)
-            Toast.makeText(this, "Review saved successfully", Toast.LENGTH_SHORT).show()
-            finish()
+            if (!isUpdate) {
+                // Crear review
+                CrudReviews().create(review)
+                Toast.makeText(this, "Review saved successfully", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                // Actualizar review
+                if (CrudReviews().update(review)) {
+                    Toast.makeText(this, "Review updated successfully", Toast.LENGTH_SHORT).show()
+                    finish()
+                } else {
+                    Toast.makeText(this, "Error updating the review", Toast.LENGTH_SHORT).show()
+                }
+            }
+
         } else {
             Toast.makeText(this, "Error saving the review", Toast.LENGTH_SHORT).show()
         }

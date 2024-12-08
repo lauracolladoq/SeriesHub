@@ -8,7 +8,8 @@ import com.example.tareafinal081224.models.Review
 
 class ReviewAdapter(
     var lista: MutableList<Review>,
-    private val deleteReview: (Int) -> Unit
+    private val deleteReview: (Int) -> Unit,
+    private val updateReview: (Review) -> Unit
 ) : RecyclerView.Adapter<ReviewViewHolder>() {
 
 
@@ -20,7 +21,7 @@ class ReviewAdapter(
     override fun getItemCount() = lista.size
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
-        holder.render(lista[position], deleteReview)
+        holder.render(lista[position], deleteReview, updateReview)
     }
 
 }

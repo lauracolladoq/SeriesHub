@@ -6,7 +6,7 @@ import com.example.tareafinal081224.providers.MyDatabase
 
 class Aplication : Application() {
     companion object {
-        const val VERSION = 5
+        const val VERSION = 6
         const val DB = "Reviews_DB"
         const val TABLA = "Reviews"
         lateinit var contexto: Context

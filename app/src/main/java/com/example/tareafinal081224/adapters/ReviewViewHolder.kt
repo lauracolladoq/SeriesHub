@@ -9,7 +9,7 @@ import com.squareup.picasso.Picasso
 class ReviewViewHolder(v: View) : RecyclerView.ViewHolder(v) {
     val binding = ReviewLayoutBinding.bind(v)
 
-    fun render(r: Review, deleteReview: (Int) -> Unit) {
+    fun render(r: Review, deleteReview: (Int) -> Unit, updateReview: (Review) -> Unit) {
         // Tengo que obtener de la id de las series los campos necesarios para mostrar
         binding.tvNameReview.text = r.serieTitle
         binding.tvComment.text = r.comment
@@ -19,6 +19,10 @@ class ReviewViewHolder(v: View) : RecyclerView.ViewHolder(v) {
 
         binding.btnDelete.setOnClickListener {
             deleteReview(adapterPosition)
+        }
+
+        binding.btnUpdate.setOnClickListener {
+            updateReview(r)
         }
     }
 

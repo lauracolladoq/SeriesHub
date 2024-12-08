@@ -76,6 +76,19 @@ class CrudReviews {
     }
 
     // UPDATE --------------------------------------------------------------------------------------
+    public fun update(r: Review): Boolean {
+        // Abrir la base de datos en modo escritura
+        val con = Aplication.llave.writableDatabase
+        val values = r.toContentValues()
+        var filasAfectadas = 0
 
-
+        filasAfectadas = con.update(
+            Aplication.TABLA,
+            values,
+            "id=?",
+            arrayOf(r.id.toString())
+        )
+        con.close()
+        return filasAfectadas > 0
+    }
 }
