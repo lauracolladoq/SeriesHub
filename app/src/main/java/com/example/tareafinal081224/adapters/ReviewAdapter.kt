@@ -5,10 +5,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tareafinal081224.R
 import com.example.tareafinal081224.models.Review
-import com.example.tareafinal081224.models.Serie
 
 class ReviewAdapter(
-    var lista: MutableList<Review>
+    var lista: MutableList<Review>,
+    private val deleteReview: (Int) -> Unit
 ) : RecyclerView.Adapter<ReviewViewHolder>() {
 
 
@@ -20,7 +20,7 @@ class ReviewAdapter(
     override fun getItemCount() = lista.size
 
     override fun onBindViewHolder(holder: ReviewViewHolder, position: Int) {
-        holder.render(lista[position])
+        holder.render(lista[position], deleteReview)
     }
 
 }

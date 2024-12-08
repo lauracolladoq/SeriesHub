@@ -2,6 +2,7 @@ package com.example.tareafinal081224
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -52,8 +53,21 @@ class ReviewActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         getReviews()
-        adapter = ReviewAdapter(listaReviews)
+        // adapter = ReviewAdapter(listaReviews)
+        adapter = ReviewAdapter(listaReviews, { position -> deleteReview(position) })
         binding.recyclerView.adapter = adapter
+    }
+
+    private fun deleteReview(position: Int) {
+        val id = listaReviews[position].id
+        // Eliminar de la lista mutable
+        listaReviews.removeAt(position)
+        // Eliminar de la base de datos
+        if (CrudReviews().delete(id)) {
+            adapter.notifyItemRemoved(position)
+        } else {
+            Toast.makeText(this, "ERROR deleting the review", Toast.LENGTH_SHORT).show()
+        }
     }
 
     // Reiniciar la vista al añadir una nueva review

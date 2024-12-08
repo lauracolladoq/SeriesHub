@@ -67,6 +67,14 @@ class CrudReviews {
         return lista
     }
 
+    // DELETE --------------------------------------------------------------------------------------
+    public fun delete(id: Int): Boolean {
+        val con = Aplication.llave.writableDatabase
+        val reviewDeleted = con.delete(Aplication.TABLA, "id=?", arrayOf(id.toString()))
+        con.close()
+        return reviewDeleted > 0
+    }
+
     // UPDATE --------------------------------------------------------------------------------------
 
 
