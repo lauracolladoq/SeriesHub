@@ -3,6 +3,8 @@ package com.example.tareafinal081224
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -26,6 +28,10 @@ class ReviewActivity : AppCompatActivity() {
     var listaReviews = mutableListOf<Review>()
     private lateinit var adapter: ReviewAdapter
 
+    // Spinner
+    private lateinit var spinner: ArrayAdapter<String>
+    private lateinit var options: List<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,8 +44,55 @@ class ReviewActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        options = listOf("All", "Positive Rating", "Negative Rating")
+        spinner = ArrayAdapter(this, android.R.layout.simple_spinner_item, options)
+        spinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinner.adapter = spinner
+
+        setListeners()
         setRecycler()
     }
+
+    private fun setListeners() {
+        // Al seleccionar un item del spinner creamos un objeto anónimo de tipo AdapterView
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+
+            // Obtener el padre (spinner), la vista (item seleccionado), la posición y el id
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                // Hilo secundario para filtrar la lista de reseñas
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val filter = when (position) {
+                        1 -> listaReviews.filter { it.rating >= 5 }
+                        2 -> listaReviews.filter { it.rating < 5 }
+                        else -> listaReviews
+                    }
+
+                    // Volver al hilo principal
+                    withContext(Dispatchers.Main) {
+                        // Actualizar el adapter pasándole la lista filtrada
+                        adapter = ReviewAdapter(
+                            // Pasamos la lista filtrada a mutableList
+                            filter.toMutableList(),
+                            { position -> deleteReview(position) },
+                            { review -> updateReview(review) }
+                        )
+                        binding.recyclerView.adapter = adapter
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
+    }
+
 
     private fun getReviews() {
         listaReviews = CrudReviews().read()
@@ -54,6 +107,7 @@ class ReviewActivity : AppCompatActivity() {
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
         getReviews()
+
         // adapter = ReviewAdapter(listaReviews)
         adapter = ReviewAdapter(
             listaReviews,
