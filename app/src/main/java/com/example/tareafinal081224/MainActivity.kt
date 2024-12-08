@@ -37,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         binding.btnLogout.setOnClickListener {
             auth.signOut()
             finish()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
     }
 
