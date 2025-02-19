@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,13 +9,14 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.tareafinal081224.adapters.SerieAdapter
+import com.example.tareafinal081224.R
+import com.example.tareafinal081224.ui.adapters.SerieAdapter
 import com.example.tareafinal081224.databinding.ActivityExplorerBinding
-import com.example.tareafinal081224.models.Genre
-import com.example.tareafinal081224.models.ListadoSeries
-import com.example.tareafinal081224.models.Serie
-import com.example.tareafinal081224.providers.ObjectClientApi.genresClient
-import com.example.tareafinal081224.providers.ObjectClientApi.seriesClient
+import com.example.tareafinal081224.domain.models.Genre
+import com.example.tareafinal081224.domain.models.ListadoSeries
+import com.example.tareafinal081224.domain.models.Serie
+import com.example.tareafinal081224.data.net.ObjectClientApi.genresClient
+import com.example.tareafinal081224.data.net.ObjectClientApi.seriesClient
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

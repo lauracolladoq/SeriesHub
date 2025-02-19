@@ -10,7 +10,7 @@
     app:cardCornerRadius="12dp"
     app:cardElevation="12dp"
     app:cardUseCompatPadding="true"
-    tools:context=".DetailActivity">
+    tools:context=".ui.DetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

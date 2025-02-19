@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,10 +11,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tareafinal081224.adapters.ReviewAdapter
+import com.example.tareafinal081224.R
+import com.example.tareafinal081224.ui.adapters.ReviewAdapter
 import com.example.tareafinal081224.databinding.ActivityReviewBinding
-import com.example.tareafinal081224.models.Review
-import com.example.tareafinal081224.providers.CrudReviews
+import com.example.tareafinal081224.domain.models.Review
+import com.example.tareafinal081224.data.repository.CrudReviews
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

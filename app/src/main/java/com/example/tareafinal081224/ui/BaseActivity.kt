@@ -1,9 +1,10 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.content.Intent
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import com.example.tareafinal081224.R
 
 open class BaseActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

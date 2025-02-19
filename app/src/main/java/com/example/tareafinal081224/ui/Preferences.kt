@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.content.Context
 import android.content.Context.MODE_PRIVATE

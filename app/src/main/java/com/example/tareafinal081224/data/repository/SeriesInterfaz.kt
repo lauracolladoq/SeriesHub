@@ -1,6 +1,6 @@
-package com.example.tareafinal081224.providers
+package com.example.tareafinal081224.data.repository
 
-import com.example.tareafinal081224.models.ListadoSeries
+import com.example.tareafinal081224.domain.models.ListadoSeries
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

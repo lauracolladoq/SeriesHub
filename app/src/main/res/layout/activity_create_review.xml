@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="20dp"
-    tools:context=".CreateReviewActivity">
+    tools:context=".ui.CreateReviewActivity">
 
     <TextView
         android:id="@+id/tv_title_add"

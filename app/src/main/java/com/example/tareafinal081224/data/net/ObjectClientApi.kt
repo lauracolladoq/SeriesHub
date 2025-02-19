@@ -1,5 +1,7 @@
-package com.example.tareafinal081224.providers
+package com.example.tareafinal081224.data.net
 
+import com.example.tareafinal081224.data.repository.GenresInterfaz
+import com.example.tareafinal081224.data.repository.SeriesInterfaz
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

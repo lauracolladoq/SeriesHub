@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.graphics.Bitmap
 import android.os.Bundle
@@ -10,6 +10,7 @@ import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tareafinal081224.R
 import com.example.tareafinal081224.databinding.ActivitySearchBinding
 import java.util.Locale
 

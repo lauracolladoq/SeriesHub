@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.Manifest
 import android.content.Intent
@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.commit
+import com.example.tareafinal081224.R
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback

@@ -1,8 +1,8 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.app.Application
 import android.content.Context
-import com.example.tareafinal081224.providers.MyDatabase
+import com.example.tareafinal081224.data.MyDatabase
 
 class Aplication : Application() {
     companion object {

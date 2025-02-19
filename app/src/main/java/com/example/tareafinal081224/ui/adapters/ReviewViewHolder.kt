@@ -1,9 +1,9 @@
-package com.example.tareafinal081224.adapters
+package com.example.tareafinal081224.ui.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tareafinal081224.databinding.ReviewLayoutBinding
-import com.example.tareafinal081224.models.Review
+import com.example.tareafinal081224.domain.models.Review
 import com.squareup.picasso.Picasso
 
 class ReviewViewHolder(v: View) : RecyclerView.ViewHolder(v) {

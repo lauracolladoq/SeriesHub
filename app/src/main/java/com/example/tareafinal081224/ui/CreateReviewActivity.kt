@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.os.Bundle
 import android.widget.Toast
@@ -6,9 +6,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tareafinal081224.R
 import com.example.tareafinal081224.databinding.ActivityCreateReviewBinding
-import com.example.tareafinal081224.models.Review
-import com.example.tareafinal081224.providers.CrudReviews
+import com.example.tareafinal081224.domain.models.Review
+import com.example.tareafinal081224.data.repository.CrudReviews
 
 class CreateReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCreateReviewBinding

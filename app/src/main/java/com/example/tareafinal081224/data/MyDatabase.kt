@@ -1,8 +1,8 @@
-package com.example.tareafinal081224.providers
+package com.example.tareafinal081224.data
 
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
-import com.example.tareafinal081224.Aplication
+import com.example.tareafinal081224.ui.Aplication
 
 class MyDatabase() :
     SQLiteOpenHelper(Aplication.contexto, Aplication.DB, null, Aplication.VERSION) {

@@ -1,8 +1,8 @@
-package com.example.tareafinal081224.providers
+package com.example.tareafinal081224.data.repository
 
 import android.database.sqlite.SQLiteDatabase
-import com.example.tareafinal081224.Aplication
-import com.example.tareafinal081224.models.Review
+import com.example.tareafinal081224.ui.Aplication
+import com.example.tareafinal081224.domain.models.Review
 import android.content.ContentValues
 
 class CrudReviews {

@@ -1,9 +1,9 @@
-package com.example.tareafinal081224.adapters
+package com.example.tareafinal081224.ui.adapters
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tareafinal081224.databinding.SeriesLayoutBinding
-import com.example.tareafinal081224.models.Serie
+import com.example.tareafinal081224.domain.models.Serie
 import com.squareup.picasso.Picasso
 
 class SerieViewHolder(v: View) : RecyclerView.ViewHolder(v) {

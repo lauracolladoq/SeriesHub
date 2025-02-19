@@ -1,10 +1,10 @@
-package com.example.tareafinal081224.adapters
+package com.example.tareafinal081224.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tareafinal081224.R
-import com.example.tareafinal081224.models.Review
+import com.example.tareafinal081224.domain.models.Review
 
 class ReviewAdapter(
     var lista: MutableList<Review>,

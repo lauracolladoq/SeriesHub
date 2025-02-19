@@ -1,4 +1,4 @@
-package com.example.tareafinal081224
+package com.example.tareafinal081224.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,8 +6,9 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tareafinal081224.R
 import com.example.tareafinal081224.databinding.ActivityDetailBinding
-import com.example.tareafinal081224.models.Serie
+import com.example.tareafinal081224.domain.models.Serie
 import com.squareup.picasso.Picasso
 
 class DetailActivity : BaseActivity() {

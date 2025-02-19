@@ -7,7 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".Aplication"
+        android:name=".ui.Aplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -23,25 +23,25 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapActivity"
+            android:name=".ui.MapActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateReviewActivity"
+            android:name=".ui.CreateReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ReviewActivity"
+            android:name=".ui.ReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".SearchActivity"
+            android:name=".ui.SearchActivity"
             android:exported="false" />
         <activity
-            android:name=".DetailActivity"
+            android:name=".ui.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".ExplorerActivity"
+            android:name=".ui.ExplorerActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".ui.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:exported="false" />
     </application>
 
