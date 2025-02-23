@@ -10,6 +10,7 @@ import android.widget.SearchView
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tareafinal081224.BaseActivity
 import com.example.tareafinal081224.R
 import com.example.tareafinal081224.databinding.ActivitySearchBinding
 import java.util.Locale
@@ -55,6 +56,10 @@ class SearchActivity : BaseActivity() {
             }
 
         })
+
+        binding.nv.setNavigationItemSelectedListener {
+            comprobarItem(it)
+        }
     }
 
     private fun startWebView() {

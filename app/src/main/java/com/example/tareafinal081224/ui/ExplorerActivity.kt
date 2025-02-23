@@ -9,14 +9,17 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.tareafinal081224.BaseActivity
 import com.example.tareafinal081224.R
-import com.example.tareafinal081224.ui.adapters.SerieAdapter
+import com.example.tareafinal081224.data.net.ObjectClientApi.genresClient
+import com.example.tareafinal081224.data.net.ObjectClientApi.seriesClient
 import com.example.tareafinal081224.databinding.ActivityExplorerBinding
 import com.example.tareafinal081224.domain.models.Genre
 import com.example.tareafinal081224.domain.models.ListadoSeries
 import com.example.tareafinal081224.domain.models.Serie
-import com.example.tareafinal081224.data.net.ObjectClientApi.genresClient
-import com.example.tareafinal081224.data.net.ObjectClientApi.seriesClient
+import com.example.tareafinal081224.ui.DetailActivity
+import com.example.tareafinal081224.ui.Preferences
+import com.example.tareafinal081224.ui.adapters.SerieAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -95,6 +98,10 @@ class ExplorerActivity : BaseActivity() {
             preferences.setAdultContent(binding.checkBox.isChecked)
             getSeries()
         }
+        binding.nv.setNavigationItemSelectedListener {
+            comprobarItem(it)
+        }
+
     }
 
     private fun getGenders() {

@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tareafinal081224.BaseActivity
 import com.example.tareafinal081224.R
 import com.example.tareafinal081224.ui.adapters.ReviewAdapter
 import com.example.tareafinal081224.databinding.ActivityReviewBinding
@@ -87,6 +88,9 @@ class ReviewActivity : BaseActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
+        }
+        binding.nv.setNavigationItemSelectedListener {
+            comprobarItem(it)
         }
     }
 

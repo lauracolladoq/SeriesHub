@@ -2,25 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/item_explorer"
-        android:icon="@drawable/video"
+        android:icon="@drawable/explorer"
         android:title="@string/item_explorer" />
     <item
         android:id="@+id/item_search"
-        android:icon="@drawable/busqueda"
+        android:icon="@drawable/search"
         android:title="@string/item_search" />
     <item
         android:id="@+id/item_reviews"
-        android:icon="@drawable/estrellas"
+        android:icon="@drawable/review"
         android:title="@string/item_reviews" />
     <item
         android:id="@+id/item_profile"
-        android:icon="@drawable/usuario"
+        android:icon="@drawable/profile"
         android:title="@string/item_profile" />
     <item
         android:id="@+id/item_maps"
-        android:icon="@drawable/mapa"
+        android:icon="@drawable/maps"
         android:title="@string/item_maps" />
+
+    <item
+        android:id="@+id/item_game"
+        android:icon="@drawable/game"
+        android:title="@string/item_game" />
     <item
         android:id="@+id/item_exit"
+        android:icon="@drawable/exit"
         android:title="@string/item_exit" />
 </menu>

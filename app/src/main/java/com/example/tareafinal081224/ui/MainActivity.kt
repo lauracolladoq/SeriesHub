@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tareafinal081224.BaseActivity
 import com.example.tareafinal081224.R
+import com.example.tareafinal081224.databinding.ActivityExplorerBinding
 import com.example.tareafinal081224.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -18,8 +20,12 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
+
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
@@ -36,6 +42,9 @@ class MainActivity : BaseActivity() {
             finish()
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+        }
+        binding.nv.setNavigationItemSelectedListener {
+            comprobarItem(it)
         }
     }
 }

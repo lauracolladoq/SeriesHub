@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.tareafinal081224.BaseActivity
 import com.example.tareafinal081224.R
 import com.example.tareafinal081224.databinding.ActivityDetailBinding
 import com.example.tareafinal081224.domain.models.Serie
@@ -45,6 +46,10 @@ class DetailActivity : BaseActivity() {
             intent.putExtra("seriePoster", serie.backdrop)
             intent.putExtra("serieTitle", serie.title)
             startActivity(intent)
+        }
+
+        binding.nv.setNavigationItemSelectedListener {
+            comprobarItem(it)
         }
     }
 

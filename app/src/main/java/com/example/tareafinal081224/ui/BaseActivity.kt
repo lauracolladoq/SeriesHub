@@ -1,23 +1,17 @@
-package com.example.tareafinal081224.ui
+package com.example.tareafinal081224
 
 import android.content.Intent
-import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tareafinal081224.R
+import com.example.tareafinal081224.ui.ExplorerActivity
+import com.example.tareafinal081224.ui.MainActivity
+import com.example.tareafinal081224.ui.MapActivity
+import com.example.tareafinal081224.ui.ReviewActivity
+import com.example.tareafinal081224.ui.SearchActivity
 
 open class BaseActivity : AppCompatActivity() {
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.navigation_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.itemId) {
-            R.id.item_exit -> {
-                finishAffinity()
-            }
-
+    fun comprobarItem(itemId: MenuItem): Boolean {
+        when (itemId.itemId) {
             R.id.item_profile -> {
                 cargarActivity(MainActivity::class.java)
             }
@@ -26,19 +20,25 @@ open class BaseActivity : AppCompatActivity() {
                 cargarActivity(ExplorerActivity::class.java)
             }
 
-            R.id.item_reviews -> {
-                cargarActivity(ReviewActivity::class.java)
+            R.id.item_maps -> {
+                cargarActivity(MapActivity::class.java)
             }
 
             R.id.item_search -> {
                 cargarActivity(SearchActivity::class.java)
             }
 
-            R.id.item_maps -> {
-                cargarActivity(MapActivity::class.java)
+            R.id.item_reviews -> {
+                cargarActivity(ReviewActivity::class.java)
             }
+
+            R.id.item_exit -> {
+                finishAffinity()
+            }
+
+            else -> return false
         }
-        return super.onOptionsItemSelected(item)
+        return true
     }
 
     private fun cargarActivity(java: Class<*>) {
