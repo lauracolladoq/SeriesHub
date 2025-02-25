@@ -43,28 +43,28 @@ class DetailActivity : BaseActivity() {
 
         binding.btnCreate.setOnClickListener {
             val intent = Intent(this, CreateReviewActivity::class.java)
-            intent.putExtra("seriePoster", serie.backdrop)
-            intent.putExtra("serieTitle", serie.title)
+            intent.putExtra("seriePoster", serie.backdrop_path)
+            intent.putExtra("serieTitle", serie.original_name)
             startActivity(intent)
         }
 
         binding.nv.setNavigationItemSelectedListener {
-            comprobarItem(it)
+            checkMenuItem(it)
         }
     }
 
     // Obtiene los detalles de la serie y los muestra en la pantalla
     private fun getDetail() {
         val genreNames = intent.getStringArrayListExtra("genreNames") ?: emptyList()
-        binding.tvTitleDetail.text = serie.title
+        binding.tvTitleDetail.text = serie.original_name
 
         // Si la sinopsis es vacía, muestra un mensaje
-        if (serie.synopsis.isEmpty()) {
+        if (serie.overview.isEmpty()) {
             binding.tvSynopsis.text = "No synopsis available"
         } else {
-            binding.tvSynopsis.text = serie.synopsis
+            binding.tvSynopsis.text = serie.overview
         }
-        binding.tvRatingDetail.text = serie.rating.toString()
+        binding.tvRatingDetail.text = serie.vote_average.toString()
 
         // Si la serie es para adultos lo muestra en la pantalla, si no, muestra que es para todas las edades
         if (serie.adult) {
@@ -80,7 +80,8 @@ class DetailActivity : BaseActivity() {
         binding.tvGenres.text = genreNames.joinToString(", ")
 
         // Librería Picasso para cargar imágenes
-        Picasso.get().load("https://image.tmdb.org/t/p/w500${serie.poster}").into(binding.ivPoster)
+        Picasso.get().load("https://image.tmdb.org/t/p/w500${serie.backdrop_path}")
+            .into(binding.ivPoster)
     }
 
 }

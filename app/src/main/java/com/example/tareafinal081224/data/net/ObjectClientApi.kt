@@ -1,15 +1,14 @@
 package com.example.tareafinal081224.data.net
 
-import com.example.tareafinal081224.data.repository.GenresInterfaz
-import com.example.tareafinal081224.data.repository.SeriesInterfaz
+import com.example.tareafinal081224.utils.constants.Constants.URL_BASE
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object ObjectClientApi {
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://api.themoviedb.org/")
+        .baseUrl(URL_BASE)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-    val seriesClient = retrofit.create(SeriesInterfaz::class.java)
-    val genresClient = retrofit.create(GenresInterfaz::class.java)
+    val seriesListService = retrofit.create(SeriesInterfaz::class.java)
+    val genresListService = retrofit.create(GenresInterfaz::class.java)
 }

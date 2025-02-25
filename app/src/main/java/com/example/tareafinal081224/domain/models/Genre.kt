@@ -1,13 +1,6 @@
 package com.example.tareafinal081224.domain.models
 
-import com.google.gson.annotations.SerializedName
-
 data class Genre(
-    @SerializedName("id") val id: Int,
-    @SerializedName("name") val name: String,
-) {
-}
-
-data class ListadoGenre(
-    @SerializedName("genres") val listadoGenre: MutableList<Genre>
+    val id: Int,
+    val name: String
 )

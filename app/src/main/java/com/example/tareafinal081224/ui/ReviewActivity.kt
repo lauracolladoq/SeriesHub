@@ -90,7 +90,7 @@ class ReviewActivity : BaseActivity() {
             }
         }
         binding.nv.setNavigationItemSelectedListener {
-            comprobarItem(it)
+            checkMenuItem(it)
         }
     }
 

@@ -58,7 +58,7 @@ class SearchActivity : BaseActivity() {
         })
 
         binding.nv.setNavigationItemSelectedListener {
-            comprobarItem(it)
+            checkMenuItem(it)
         }
     }
 

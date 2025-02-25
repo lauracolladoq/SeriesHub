@@ -7,7 +7,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.tareafinal081224.BaseActivity
 import com.example.tareafinal081224.R
-import com.example.tareafinal081224.databinding.ActivityExplorerBinding
 import com.example.tareafinal081224.databinding.ActivityMainBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -44,7 +43,7 @@ class MainActivity : BaseActivity() {
             startActivity(intent)
         }
         binding.nv.setNavigationItemSelectedListener {
-            comprobarItem(it)
+            checkMenuItem(it)
         }
     }
 }

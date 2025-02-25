@@ -10,7 +10,7 @@ import com.example.tareafinal081224.ui.ReviewActivity
 import com.example.tareafinal081224.ui.SearchActivity
 
 open class BaseActivity : AppCompatActivity() {
-    fun comprobarItem(itemId: MenuItem): Boolean {
+    fun checkMenuItem(itemId: MenuItem): Boolean {
         when (itemId.itemId) {
             R.id.item_profile -> {
                 cargarActivity(MainActivity::class.java)
