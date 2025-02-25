@@ -61,8 +61,9 @@
         <ScrollView
             android:id="@+id/sv_detail"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            app:layout_constraintBottom_toTopOf="@id/tv_genres"
             app:layout_constraintEnd_toEndOf="@id/iv_poster"
             app:layout_constraintStart_toStartOf="@id/iv_poster"
             app:layout_constraintTop_toBottomOf="@id/iv_rating_detail">
@@ -91,7 +92,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/sv_detail" />
+            app:layout_constraintTop_toBottomOf="@id/sv_detail"
+            app:layout_constraintBottom_toTopOf="@id/tv_adults"/>
 
         <TextView
             android:id="@+id/tv_adults"
@@ -102,6 +104,7 @@
             android:text="Text View"
             android:textColor="#FF0000"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/btn_create"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_genres" />
@@ -128,7 +131,8 @@
             app:layout_constraintEnd_toStartOf="@+id/btn_back"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_adults" />
+            app:layout_constraintTop_toBottomOf="@id/tv_adults"
+            app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Navigation Menu -->
     <com.google.android.material.navigation.NavigationView
