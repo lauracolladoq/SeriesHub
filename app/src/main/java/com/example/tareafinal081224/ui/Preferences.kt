@@ -15,12 +15,4 @@ class Preferences(c: Context) {
         return storage.getString("SERIES_TYPE", "popular")
     }
 
-    // Guardar el estado del checkbox
-    fun setAdultContent(enabled: Boolean) {
-        storage.edit().putBoolean("ADULT_CONTENT", enabled).apply()
-    }
-
-    fun getAdultContent(): Boolean {
-        return storage.getBoolean("ADULT_CONTENT", false)
-    }
 }

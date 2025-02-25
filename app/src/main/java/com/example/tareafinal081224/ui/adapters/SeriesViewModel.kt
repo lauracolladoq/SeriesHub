@@ -34,4 +34,24 @@ class SeriesViewModel : ViewModel() {
             _seriesList.postValue(data)
         }
     }
+
+    fun getSeriesAdultContent(isAdultContent: Boolean, seriesType: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val data = when (seriesType) {
+                "popular" -> repository.getPopulares()
+                "top" -> repository.getSeriesTopRated()
+                "airing" -> repository.getSeriesAiringToday()
+                else -> repository.getPopulares()
+            }
+
+            // Filtrar series con contenido para adultos
+            val filteredData = if (isAdultContent) {
+                data.filter { it.adult }
+            } else {
+                data.filter { !it.adult }
+            }
+
+            _seriesList.postValue(filteredData)
+        }
+    }
 }
