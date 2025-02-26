@@ -126,13 +126,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:backgroundTint="#42A5F5"
+            android:backgroundTint="#90CAF9"
             android:text="@string/btn_create"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_back"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_adults"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/tv_adults" />
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Navigation Menu -->
     <com.google.android.material.navigation.NavigationView

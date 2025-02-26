@@ -9,28 +9,27 @@
         android:icon="@drawable/search"
         android:title="@string/item_search" />
     <item
+        android:id="@+id/item_maps"
+        android:icon="@drawable/maps"
+        android:title="@string/item_maps" />
+    <item
         android:id="@+id/item_reviews"
         android:icon="@drawable/review"
         android:title="@string/item_reviews" />
     <item
-        android:id="@+id/item_profile"
-        android:icon="@drawable/profile"
-        android:title="@string/item_profile" />
-    <item
-        android:id="@+id/item_maps"
-        android:icon="@drawable/maps"
-        android:title="@string/item_maps" />
-
+        android:id="@+id/item_group_chat"
+        android:icon="@drawable/chat"
+        android:title="@string/item_group_chat" />
     <item
         android:id="@+id/item_game"
         android:icon="@drawable/game"
         android:title="@string/item_game" />
     <item
-    android:id="@+id/item_exit"
-    android:icon="@drawable/exit"
-    android:title="@string/item_exit" />
+        android:id="@+id/item_profile"
+        android:icon="@drawable/profile"
+        android:title="@string/item_profile" />
     <item
-        android:id="@+id/item_group_chat"
-        android:icon="@drawable/chat"
-        android:title="@string/item_group_chat" />
+        android:id="@+id/item_exit"
+        android:icon="@drawable/exit"
+        android:title="@string/item_exit" />
 </menu>
