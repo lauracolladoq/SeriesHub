@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:fontFamily="@font/poppins_semibold"
-            android:text="TextView"
+            android:text="@string/tv_title_spin"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -31,7 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="TextView"
+            android:text="@string/tv_description_spin"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,60 +40,40 @@
 
         <ImageView
             android:id="@+id/iv_poster"
-            android:layout_width="350dp"
+            android:layout_width="300dp"
             android:layout_height="350dp"
             android:layout_marginTop="10dp"
             android:scaleType="centerCrop"
-            app:layout_constraintBottom_toTopOf="@+id/iv_rating_detail"
+            app:layout_constraintBottom_toTopOf="@+id/tv_serie_name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_description_spin"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <ImageView
-            android:id="@+id/iv_rating_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            app:layout_constraintBottom_toBottomOf="@+id/tv_rating_detail"
-            app:layout_constraintEnd_toStartOf="@id/tv_rating_detail"
-            app:layout_constraintTop_toTopOf="@+id/tv_rating_detail"
-            app:srcCompat="@drawable/estrella" />
-
         <TextView
-            android:id="@+id/tv_rating_detail"
+            android:id="@+id/tv_serie_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="@id/iv_poster"
-            app:layout_constraintTop_toBottomOf="@id/iv_poster" />
-
-        <ScrollView
-            android:id="@+id/sv_detail"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
             android:layout_marginTop="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/iv_poster"
-            app:layout_constraintStart_toStartOf="@id/iv_poster"
-            app:layout_constraintTop_toBottomOf="@id/iv_rating_detail">
+            android:text=""
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_spin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="244dp"
+            tools:layout_editor_absoluteY="642dp" />
 
-                <TextView
-                    android:id="@+id/tv_synopsis"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:text="TextView"
-                    android:textSize="16sp" />
-            </LinearLayout>
-        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Navigation Menu -->
     <com.google.android.material.navigation.NavigationView

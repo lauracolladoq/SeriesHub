@@ -8,6 +8,7 @@ import com.example.tareafinal081224.ui.MainActivity
 import com.example.tareafinal081224.ui.MapActivity
 import com.example.tareafinal081224.ui.ReviewActivity
 import com.example.tareafinal081224.ui.SearchActivity
+import com.example.tareafinal081224.ui.SpinActivity
 
 open class BaseActivity : AppCompatActivity() {
     fun checkMenuItem(itemId: MenuItem): Boolean {
@@ -34,6 +35,10 @@ open class BaseActivity : AppCompatActivity() {
 
             R.id.item_exit -> {
                 finishAffinity()
+            }
+
+            R.id.item_game -> {
+                cargarActivity(SpinActivity::class.java)
             }
 
             else -> return false

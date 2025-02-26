@@ -54,4 +54,10 @@ class SeriesViewModel : ViewModel() {
             _seriesList.postValue(filteredData)
         }
     }
+
+    fun getRandomSerie(): Serie? {
+        // Compruebo que la lista de series no esté vacía
+        val seriesList = _seriesList.value ?: emptyList()
+        return seriesList.randomOrNull() //
+    }
 }
