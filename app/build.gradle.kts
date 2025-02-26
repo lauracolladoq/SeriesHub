@@ -48,6 +48,9 @@ dependencies {
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata:2.8.7")
 
+    // Realtime Database
+    implementation("com.google.android.gms:play-services-auth:21.3.0")
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -67,6 +70,7 @@ dependencies {
 
     implementation(libs.androidx.fragment.ktx)
     implementation(libs.play.services.maps)
+    implementation(libs.firebase.database)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

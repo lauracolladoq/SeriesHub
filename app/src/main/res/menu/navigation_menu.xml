@@ -26,7 +26,11 @@
         android:icon="@drawable/game"
         android:title="@string/item_game" />
     <item
-        android:id="@+id/item_exit"
-        android:icon="@drawable/exit"
-        android:title="@string/item_exit" />
+    android:id="@+id/item_exit"
+    android:icon="@drawable/exit"
+    android:title="@string/item_exit" />
+    <item
+        android:id="@+id/item_group_chat"
+        android:icon="@drawable/chat"
+        android:title="@string/item_group_chat" />
 </menu>

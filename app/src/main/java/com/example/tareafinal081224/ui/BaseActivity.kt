@@ -4,6 +4,7 @@ import android.content.Intent
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tareafinal081224.ui.ExplorerActivity
+import com.example.tareafinal081224.ui.GroupChatActivity
 import com.example.tareafinal081224.ui.MainActivity
 import com.example.tareafinal081224.ui.MapActivity
 import com.example.tareafinal081224.ui.ReviewActivity
@@ -14,23 +15,23 @@ open class BaseActivity : AppCompatActivity() {
     fun checkMenuItem(itemId: MenuItem): Boolean {
         when (itemId.itemId) {
             R.id.item_profile -> {
-                cargarActivity(MainActivity::class.java)
+                launchActivity(MainActivity::class.java)
             }
 
             R.id.item_explorer -> {
-                cargarActivity(ExplorerActivity::class.java)
+                launchActivity(ExplorerActivity::class.java)
             }
 
             R.id.item_maps -> {
-                cargarActivity(MapActivity::class.java)
+                launchActivity(MapActivity::class.java)
             }
 
             R.id.item_search -> {
-                cargarActivity(SearchActivity::class.java)
+                launchActivity(SearchActivity::class.java)
             }
 
             R.id.item_reviews -> {
-                cargarActivity(ReviewActivity::class.java)
+                launchActivity(ReviewActivity::class.java)
             }
 
             R.id.item_exit -> {
@@ -38,7 +39,11 @@ open class BaseActivity : AppCompatActivity() {
             }
 
             R.id.item_game -> {
-                cargarActivity(SpinActivity::class.java)
+                launchActivity(SpinActivity::class.java)
+            }
+
+            R.id.item_group_chat -> {
+                launchActivity(GroupChatActivity::class.java)
             }
 
             else -> return false
@@ -46,7 +51,7 @@ open class BaseActivity : AppCompatActivity() {
         return true
     }
 
-    private fun cargarActivity(java: Class<*>) {
+    private fun launchActivity(java: Class<*>) {
         val intent = Intent(this, java)
         startActivity(intent)
     }

@@ -16,6 +16,7 @@
     <string name="item_exit">Exit</string>
     <string name="item_maps">Maps</string>
     <string name="item_game">Spin &amp; Watch</string>
+    <string name="item_group_chat">Group Chat</string>
     <!-- Profile -->
     <string name="btn_logout">Logout</string>
     <string name="tv_title_profile">Your Profile</string>
