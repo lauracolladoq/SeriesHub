@@ -65,15 +65,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_poster" />
 
-        <Button
-            android:id="@+id/btn_spin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="244dp"
-            tools:layout_editor_absoluteY="642dp" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
     <!-- Navigation Menu -->
     <com.google.android.material.navigation.NavigationView
