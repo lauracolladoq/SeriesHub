@@ -49,6 +49,14 @@ class SpinActivity : BaseActivity(), SensorEventListener {
         // Inicializar el sensor
         sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+
+        setListeners()
+    }
+
+    private fun setListeners() {
+        binding.nv.setNavigationItemSelectedListener {
+            checkMenuItem(it)
+        }
     }
 
     override fun onResume() {
